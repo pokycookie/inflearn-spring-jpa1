@@ -40,7 +40,7 @@ class OrderServiceTest {
         assertThat(getOrder.getStatus()).isEqualTo(OrderStatus.ORDER);
         assertThat(getOrder.getOrderItems().size()).isEqualTo(1);
         assertThat(getOrder.getTotalPrice()).isEqualTo(20000);
-        assertThat(book.getStockQunatity()).isEqualTo(8);
+        assertThat(book.getStockQuantity()).isEqualTo(8);
     }
 
     @Test
@@ -72,14 +72,14 @@ class OrderServiceTest {
         Order getOrder = orderRepository.findOne(orderId);
 
         assertThat(getOrder.getStatus()).isEqualTo(OrderStatus.CANCEL);
-        assertThat(book.getStockQunatity()).isEqualTo(10);
+        assertThat(book.getStockQuantity()).isEqualTo(10);
     }
 
     private Book createBook(String name, int price, int qunatity) {
         Book book = new Book();
         book.setName(name);
         book.setPrice(price);
-        book.setStockQunatity(qunatity);
+        book.setStockQuantity(qunatity);
         em.persist(book);
         return book;
     }
